@@ -30,6 +30,18 @@ function handSelection() {
     this.style.boxShadow = '0 0 0  4px red';
 }
 
+function chceckResult(player, ai) {
+
+    if (player == ai) {
+        return 'draw'
+    } else if ((player === "papier" && ai === "kamień") || (player === "kamień" && ai === "nożyczki") || (player === "nożyczki" && ai === "papier")) {
+        return 'win'
+    } else {
+        return 'loss'
+    }
+
+}
+
 //function stering
 function startGame() {
     if (!game.playerHand) {
@@ -37,9 +49,10 @@ function startGame() {
     }
 
     game.aiHand = aiChoice();
+    const gameResult = chceckResult(game.playerHand, game.aiHand);
 
 }
 
 hands.forEach(hand => hand.addEventListener('click', handSelection));
 
-document.querySelector('.start').addEventListener('click', startGame);
+document.querySelector('.start').addEventListener('click', startGame); 
