@@ -68,7 +68,13 @@ function publishResult(player, ai, result) {
     }
 }
 
-//function stering
+//reset 
+function endGame() {
+    document.querySelector('[data-option="' + game.playerHand + '"]').style.boxShadow = "";
+}
+
+
+//stering function
 function startGame() {
     if (!game.playerHand) {
         return alert("wybierze dłoń!!!!")
